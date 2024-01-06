@@ -3,12 +3,11 @@ import { toast } from "react-toastify";
 import { getOneCategory } from "../../api/categoryRequests";
 import { useParams } from "react-router-dom";
 import Car from "../../components/Car/Car";
+import Loading from "../../components/Loading/Loading";
 
 const Cars = () => {
-  const  categoryId  = useParams().id;
+  const categoryId = useParams().id;
   const [category, setCategory] = useState(null);
-  console.log(category);
-
 
   useEffect(() => {
     const getCategory = async () => {
@@ -19,28 +18,33 @@ const Cars = () => {
         toast.error(error.response.data.message);
       }
     };
-    
+
     getCategory();
   }, [categoryId]);
   return (
     <div>
-      <main >
-        <div className="container">
-        <h1 className="text-center">Category title:  {category?.title}, Cars: {category?.cars?.length} </h1>
+      <main>
+        <div>
+          {category ? (
+            <>
+              <div className="container">
+                <h1 className="text-center">
+                  Category title: {category?.title}, Cars:{" "}
+                  {category?.cars?.length}{" "}
+                </h1>
+              </div>
+
+              <hr />
+            </>
+          ) : (
+            <Loading />
+          )}
         </div>
-
-        <hr />
-
-      <div className="row my-3">
-        {
-         category?.cars?.map(car => {
-            return(
-              <Car key={car._id} car={car}/>
-            )
-          }) 
-        }
-      </div>
-
+        <div className="row my-3">
+          {category?.cars?.map((car) => {
+            return <Car key={car._id} car={car} />;
+          })}
+        </div>
       </main>
     </div>
   );
