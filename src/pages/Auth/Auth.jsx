@@ -36,8 +36,8 @@ const Auth = () => {
       toast.dismiss();
       localStorage.setItem("profile", JSON.stringify(res?.data?.user));
       localStorage.setItem("token", JSON.stringify(res?.data?.token));
-      setCurrentUser(res?.data?.user);
-      setLoading(false)
+      setCurrentUser(res?.data?.user)
+      setLoading(false);
     } catch (error) {
         setLoading(false)
       toast.dismiss();
@@ -46,7 +46,7 @@ const Auth = () => {
   };
   return (
     <div className="backgroud">
-    <video src="https://cdn.kia-motors.uz/uploads/video/Kia_Seltos.mp4" muted="muted" autoplay="autoplay" loop="loop" preload="https://cdn.kia-motors.uz/uploads/video/Kia_Seltos.mp4" playsinline=""></video>
+    <video src="https://cdn.kia-motors.uz/uploads/video/Kia_Seltos.mp4" muted="muted" autoplay="autoplay" loop="loop" preload="https://cdn.kia-motors.uz/uploads/video/Kia_Seltos.mp4"></video>
       <div className="auth">
         <div className="auth-left">
           <div className="app-name">
