@@ -7,13 +7,13 @@ import Loading from "../../components/Loading/Loading";
 
 const Cars = () => {
   const categoryId = useParams().id;
-  const [category, setCategory] = useState(null);
+  const [category, setCategory] = useState([]);
 
   useEffect(() => {
     const getCategory = async () => {
       try {
         const res = await getOneCategory(categoryId);
-        setCategory(res.data.category[0]);
+        setCategory(res.data.category);
       } catch (error) {
         toast.error(error.response.data.message);
       }
@@ -23,29 +23,35 @@ const Cars = () => {
   }, [categoryId]);
   return (
     <div>
-      <main>
-        <div>
-          {category ? (
-            <>
-              <div className="container">
-                <h1 className="text-center">
-                  Category title: {category?.title}, Cars:{" "}
-                  {category?.cars?.length}{" "}
-                </h1>
-              </div>
+      {category?.map((cat) => {
+        return (
+          <main>
+            <div>
+              {cat ? (
+                <>
+                  <div className="container">
+                    <h1 className="text-center">
+                      <h2 className="badge bg-primary">
+                        Category title: {cat?.title} , Cars:{" "}
+                        {cat?.cars?.length}
+                      </h2>{" "}
+                    </h1>
+                  </div>
 
-              <hr />
-            </>
-          ) : (
-            <Loading />
-          )}
-        </div>
-        <div className="row my-3">
-          {category?.cars?.map((car) => {
-            return <Car key={car._id} car={car} />;
-          })}
-        </div>
-      </main>
+                  <hr />
+                </>
+              ) : (
+                <Loading />
+              )}
+            </div>
+            <div className="row my-3">
+              {cat?.cars?.map((car) => {
+                return <Car key={car._id} car={car} />;
+              })}
+            </div>
+          </main>
+        );
+      })}
     </div>
   );
 };

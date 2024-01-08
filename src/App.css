@@ -11,9 +11,6 @@
 }
 
 *{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
   user-select: none;
 }
 
@@ -40,4 +37,9 @@
   display: none;
 }
 
+.text-span{
+  font-weight: 600;
+  font-size: 25px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 

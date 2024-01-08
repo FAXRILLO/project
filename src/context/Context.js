@@ -12,7 +12,7 @@ export const InfoProvider = ({ children }) => {
 
   const logOut = () => {
     localStorage.clear();
-    setCurrentUser(null);
+    setCurrentUser(null); 
   };
   const value = {
     currentUser,

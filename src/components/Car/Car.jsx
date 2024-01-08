@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
 
 const Car = ({ car }) => {
+  console.log(car);
   return (
     <div>
       {car ? (
-      <div className="d-felx">
+      <div className="d-flex">
           <div className="card w-20 p-3 mb-3 text-center">
           <img
             style={{ objectFit: "cover" }}
@@ -18,7 +19,7 @@ const Car = ({ car }) => {
           <h2 className="text-primary">{car?.title}</h2>
 
           <div className="text-center">
-            <i className="fa-solid fa-user-tie"></i> {car?.author}
+            <i className="fa-solid fa-user-tie"></i> {car?.author?.firstname}
           </div>
           <i className="fa-solid fa-stopwatch"></i> CLASS: {car?.class}
           <div>

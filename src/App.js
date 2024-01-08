@@ -3,7 +3,7 @@ import { useInfoContext } from "./context/Context";
 import Auth from "./pages/Auth/Auth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "../src/pages/Home/Home";
 import "./App.css";
 import Cars from "./pages/Cars/Cars";
@@ -18,6 +18,7 @@ const App = () => {
   } = theme.useToken();
 
   const { currentUser } = useInfoContext();
+
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -37,7 +38,7 @@ const App = () => {
           items={[
             {
               key: "1",
-              label: "HOME",
+              label: "home",
             },
             {
               key: "2",
@@ -66,7 +67,8 @@ const App = () => {
               width: 64,
               height: 64,
             }}
-          />
+            /><span className="text-span text-primary">avtoelon.uz</span>
+
         </Header>
         <Content
           style={{
@@ -81,7 +83,7 @@ const App = () => {
             <div className="App">
               <Routes>
                 <Route path="/" element={currentUser ? <Home /> : <Auth />} />
-                <Route path="/cars/:id" element={<Cars />} />
+                <Route path="/cars/:id" element={currentUser ? <Cars /> : <Auth />} />
               </Routes>
               <ToastContainer />
             </div>
