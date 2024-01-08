@@ -4,9 +4,9 @@ import Loading from "../Loading/Loading";
 const Car = ({ car }) => {
   console.log(car);
   return (
-    <div>
+    <div className="col-4">
       {car ? (
-      <div className="d-flex">
+      <div className="">
           <div className="card w-20 p-3 mb-3 text-center">
           <img
             style={{ objectFit: "cover" }}

@@ -7,7 +7,11 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "../src/pages/Home/Home";
 import "./App.css";
 import Cars from "./pages/Cars/Cars";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  RightOutlined,
+} from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
 import Logo from "./images/logo.png";
 const { Header, Sider, Content } = Layout;
@@ -19,6 +23,18 @@ const App = () => {
 
   const { currentUser } = useInfoContext();
 
+  const items = [
+    {
+      key: "/",
+      label: <Link to="/">Home</Link>,
+      icon: <RightOutlined />,
+    },
+    {
+      key: "/cars",
+      label: <Link to="/addCategory">Add category</Link>,
+      icon: <RightOutlined />,
+    }
+  ];
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -34,21 +50,8 @@ const App = () => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              label: "home",
-            },
-            {
-              key: "2",
-              label: "Add category",
-            },
-            {
-              key: "3",
-              label: "nav 3",
-            },
-          ]}
+          defaultSelectedKeys={["/"]}
+          items={[...items]}
         />
       </Sider>
       <Layout>
@@ -67,8 +70,8 @@ const App = () => {
               width: 64,
               height: 64,
             }}
-            /><span className="text-span text-primary">avtoelon.uz</span>
-
+          />
+          <span className="text-span text-primary">avtoelon.uz</span>
         </Header>
         <Content
           style={{
@@ -79,15 +82,16 @@ const App = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          <BrowserRouter>
-            <div className="App">
-              <Routes>
-                <Route path="/" element={currentUser ? <Home /> : <Auth />} />
-                <Route path="/cars/:id" element={currentUser ? <Cars /> : <Auth />} />
-              </Routes>
-              <ToastContainer />
-            </div>
-          </BrowserRouter>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={currentUser ? <Home /> : <Auth />} />
+              <Route
+                path="/cars/:id"
+                element={currentUser ? <Cars /> : <Auth />}
+              />
+            </Routes>
+            <ToastContainer />
+          </div>
         </Content>
       </Layout>
     </Layout>

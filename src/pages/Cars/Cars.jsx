@@ -23,35 +23,32 @@ const Cars = () => {
   }, [categoryId]);
   return (
     <div>
-      {category?.map((cat) => {
-        return (
-          <main>
-            <div>
-              {cat ? (
-                <>
-                  <div className="container">
-                    <h1 className="text-center">
-                      <h2 className="badge bg-primary">
-                        Category title: {cat?.title} , Cars:{" "}
-                        {cat?.cars?.length}
-                      </h2>{" "}
-                    </h1>
-                  </div>
+      {category.length > 0 ? (
+        category?.map((cat) => {
+          return (
+            <main>
+              <div>
+                <div className="container">
+                  <h1 className="text-center">
+                    <h2 className="badge bg-primary">
+                      Category title: {cat?.title} , Cars: {cat?.cars?.length}
+                    </h2>{" "}
+                  </h1>
+                </div>
 
-                  <hr />
-                </>
-              ) : (
-                <Loading />
-              )}
-            </div>
-            <div className="row my-3">
-              {cat?.cars?.map((car) => {
-                return <Car key={car._id} car={car} />;
-              })}
-            </div>
-          </main>
-        );
-      })}
+                <hr />
+              </div>
+              <div className="row my-3">
+                {cat?.cars?.map((car) => {
+                  return <Car key={car._id} car={car} />;
+                })}
+              </div>
+            </main>
+          );
+        })
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
