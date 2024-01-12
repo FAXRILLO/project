@@ -1,0 +1,22 @@
+.box{
+    margin: 50px;
+    display: block;
+    margin-left: 350px;
+}
+
+form input:first-child{
+    width: 200px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border-radius: 16px;
+    outline: 1px 
+    solid blue;
+    margin-right: 30px;
+}
+form{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+form button{
+}

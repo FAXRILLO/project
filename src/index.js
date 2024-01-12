@@ -11,9 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <InfoProvider>
     <BrowserRouter>
-
     <App />
     </BrowserRouter>
-
   </InfoProvider>
 );

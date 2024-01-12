@@ -4,24 +4,27 @@ import "./Category.css";
 
 const Category = ({ category }) => {
   return (
-    <div className="d-flex">
+   <div className="categories">
+     <div className="col-4">
       <Link to={`/cars/${category._id}`}>
-      <div  class="card mb-3 text-center">
-      <img
-        style={{ objectFit: "cover" }}
-        className="img-fuid"
-        width={300}
-        height={300}
-        src={`https://avtoelon-production.up.railway.app/${category?.image}`}
-        class="card-img-top"
-        alt={category.title}
-      />
-      <div class="card-body">
-        <h5 class="card-title">{category.title}</h5>
-      </div>
-    </div>
+        <div className="card mb-3 text-center">
+          <img
+            style={{ objectFit: "cover" }}
+            className="img-fuid card-img-top"
+            width={300}
+            height={300}
+            src={`https://avtoelon-production.up.railway.app/${category?.image}`}
+            alt={category.title}
+          />
+          <button className="btn btn-warning"><i class="fa-solid fa-pen"></i></button>
+          <button className="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+          <div className="card-body">
+            <h5 className="card-title">{category.title}</h5>
+          </div>
+        </div>
       </Link>
     </div>
+   </div>
   );
 };
 

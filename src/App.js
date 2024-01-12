@@ -10,7 +10,8 @@ import Cars from "./pages/Cars/Cars";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  RightOutlined,
+  HomeOutlined,
+  PlusOutlined
 } from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
 import Logo from "./images/logo.png";
@@ -27,13 +28,8 @@ const App = () => {
     {
       key: "/",
       label: <Link to="/">Home</Link>,
-      icon: <RightOutlined />,
+      icon: <HomeOutlined />,
     },
-    {
-      key: "/cars",
-      label: <Link to="/addCategory">Add category</Link>,
-      icon: <RightOutlined />,
-    }
   ];
 
   return (

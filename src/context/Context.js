@@ -9,6 +9,8 @@ export const InfoProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("profile")) || null
   );
 
+  const [category, setCategory] = useState([]);
+
 
   const logOut = () => {
     localStorage.clear();
@@ -18,6 +20,7 @@ export const InfoProvider = ({ children }) => {
     currentUser,
     setCurrentUser,
     logOut,
+    category, setCategory
   };
   return (
     <InfoContext.Provider value={value}>

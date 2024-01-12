@@ -1,7 +1,21 @@
-.card{
-    cursor: pointer;
-    width: 400px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.card {
+  cursor: pointer;
+  width: 400px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: relative;
 }
 
+.btn-danger {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
 
+.btn-warning{
+    position: absolute;
+    top: 10px;
+    right: 70px;
+}
+.btn-warning i {
+    color: white;
+}
